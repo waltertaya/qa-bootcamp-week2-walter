@@ -1,10 +1,16 @@
-
 function calculateAge(dob: Date, current: Date = new Date()): number {
-    const difference = current.getTime() - dob.getTime();
+    let age = current.getFullYear() - dob.getFullYear();
 
-    const age = difference / (1000 * 60 * 60 * 24 * 365.25);
+    const hasHadBirthdayThisYear =
+        current.getMonth() > dob.getMonth() ||
+        (current.getMonth() === dob.getMonth() &&
+            current.getDate() >= dob.getDate());
 
-    return Math.floor(age);
+    if (!hasHadBirthdayThisYear) {
+        age--;
+    }
+
+    return age;
 }
 
 const dob = new Date("2003-05-22");
