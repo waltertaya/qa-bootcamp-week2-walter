@@ -31,6 +31,13 @@ let user3: User = {
     settings: {},
 }
 
+let user4: User = {
+    id: 4,
+    username: "taya-off",
+    settings: {notifications: false},
+}
+
 console.log(isNotified(user1));
 console.log(isNotified(user2));
 console.log(isNotified(user3));
+console.log(isNotified(user4));
