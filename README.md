@@ -46,3 +46,5 @@ Check TypeScript:
 ```bash
 npx tsc --noEmit
 ```
+
+The optional Cucumber-js runner was not implemented; this feature file is documentation only.
