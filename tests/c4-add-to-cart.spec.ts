@@ -15,7 +15,7 @@ test.describe("cart API", () => {
     }
   });
 
-  test("creating a cart and adding a product returns the cart with that item", async ({ request }) => {
+  test("C4 Add to a cart returns the product in the cart", async ({ request }) => {
     
     const productsResponse = await request.get(`${API_URL}/products`);
     expect(productsResponse.status()).toBe(200);
@@ -58,7 +58,7 @@ test.describe("cart API", () => {
     expect(item?.quantity).toBe(1);
   });
 
-  test("requesting a cart that does not exist returns 404", async ({ request }) => {
+  test("C5 requesting a cart that does not exist returns 404", async ({ request }) => {
     const response = await request.get(`${API_URL}/carts/01JZZZZZZZZZZZZZZZZZZZZZZZ`);
 
     expect(response.status()).toBe(404);
