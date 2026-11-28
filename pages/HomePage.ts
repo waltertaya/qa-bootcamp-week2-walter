@@ -29,5 +29,20 @@ export class HomePage {
 
   async expectNoResults(): Promise<void> {
     await expect(this.noResultsMessage).toBeVisible();
+    await expect(this.productTitles).toHaveCount(0);
+  }
+
+  async expectOnlyProductsContaining(term: string): Promise<void> {
+    await expect.poll(async () => {
+      const names = await this.productNames();
+
+      return (
+        names.length > 0 &&
+        // names.every((name) => /${term}/i.test(name.trim()));
+        names.every((name) => name.toLowerCase().includes(term.toLowerCase()))
+      );
+    },
+    {timeout: 10_000}
+  ).toBe(true);
   }
 }

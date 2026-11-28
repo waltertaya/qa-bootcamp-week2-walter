@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flaky drill</title>
+</head>
+<body>
+  <button id="save">Save</button>
+  <p id="status"></p>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      // The message appears after a random delay of 0 to 1 second.
+      const delay = Math.random() * 1000;
+      setTimeout(() => {
+        document.getElementById('status').textContent = 'Saved';
+      }, delay);
+    });
+  </script>
+</body>
+</html>
