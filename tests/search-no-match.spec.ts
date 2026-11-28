@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
 
 test("searching for a term with no matches shows no products", async ({ page }) => {
@@ -8,5 +8,4 @@ test("searching for a term with no matches shows no products", async ({ page }) 
   await home.searchFor("zzzz-no-match");
 
   await home.expectNoResults();
-  expect(await home.productNames()).toHaveLength(0);
 });

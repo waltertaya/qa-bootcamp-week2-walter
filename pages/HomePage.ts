@@ -29,6 +29,7 @@ export class HomePage {
 
   async expectNoResults(): Promise<void> {
     await expect(this.noResultsMessage).toBeVisible();
+    await expect(this.productTitles).toHaveCount(0);
   }
 
   async expectOnlyProductsContaining(term: string): Promise<void> {

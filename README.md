@@ -9,7 +9,7 @@
 1. Clone the repository and install dependencies:
    ```bash
    git clone git@github.com:waltertaya/qa-bootcamp-week2-walter.git
-   cd qa-bootcamp-week2-starter
+   cd qa-bootcamp-week2-walter
    npm install
    npx playwright install chromium
    ```
@@ -36,6 +36,13 @@
 | `c4-add-to-cart.spec.ts` | Tests cart creation, product addition, and invalid cart IDs. |
 
 `features/cart.feature` contains the cart flow in Gherkin but is not connected to a Cucumber runner.
+
+## Run one test or record a trace
+
+```bash
+npx playwright test tests/c4-add-to-cart.spec.ts
+npx playwright test tests/c1-search-by-name.spec.ts --trace on
+npx playwright show-trace test-results/<run-folder>/trace.zip
 
 ## Scripts
 

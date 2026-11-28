@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const API_URL = "https://api.practicesoftwaretesting.com";
+const API_URL = process.env.TOOLSHOP_API_URL ?? "https://api.practicesoftwaretesting.com";
 
 type Product = { id: string; in_stock: boolean };
 type CartItem = { product_id: string; quantity: number };
@@ -10,7 +10,8 @@ test.describe("cart API", () => {
 
   test.afterEach(async ({ request }) => {
     if (cartId) {
-      await request.delete(`${API_URL}/carts/${cartId}`);
+      const response = await request.delete(`${API_URL}/carts/${cartId}`);
+      expect([200, 204]).toContain(response.status());
       cartId = undefined;
     }
   });
