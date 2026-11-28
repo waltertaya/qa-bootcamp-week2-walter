@@ -43,6 +43,7 @@
 npx playwright test tests/c4-add-to-cart.spec.ts
 npx playwright test tests/c1-search-by-name.spec.ts --trace on
 npx playwright show-trace test-results/<run-folder>/trace.zip
+```
 
 ## Scripts
 
